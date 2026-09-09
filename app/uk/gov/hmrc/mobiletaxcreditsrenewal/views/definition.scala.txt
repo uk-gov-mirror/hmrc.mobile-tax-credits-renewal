@@ -1,7 +1,6 @@
-@import uk.gov.hmrc.mobiletaxcreditsrenewal.controllers.api.ApiAccess
 @import play.api.libs.json.Json
 
-@(apiAccess: ApiAccess)
+@(apiAccess: String)
 {
   "api":{
     "name":"Mobile Tax Credits Renewal",
@@ -10,7 +9,7 @@
     "versions":[
       {
         "version":"1.0",
-        "status":"RETIRED",
+        "status":"DEPRECATED",
         "endpointsEnabled": true,
         "access": @Json.toJson(apiAccess)
       }

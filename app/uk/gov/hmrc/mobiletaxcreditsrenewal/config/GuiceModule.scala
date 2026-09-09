@@ -22,7 +22,6 @@ import play.api.Logger
 import javax.inject.Inject
 import play.api.{Configuration, Environment, LoggerLike}
 import uk.gov.hmrc.auth.core.AuthConnector
-import uk.gov.hmrc.mobiletaxcreditsrenewal.controllers.api.ApiAccess
 import uk.gov.hmrc.mobiletaxcreditsrenewal.domain.{TaxCreditsControl, TaxCreditsSubmissionControlConfig}
 import uk.gov.hmrc.play.bootstrap.auth.DefaultAuthConnector
 import uk.gov.hmrc.play.bootstrap.config.ServicesConfig
@@ -39,7 +38,7 @@ class GuiceModule @Inject() (
     bind(classOf[AuthConnector]).to(classOf[DefaultAuthConnector])
     bind(classOf[TaxCreditsControl]).to(classOf[TaxCreditsSubmissionControlConfig])
 
-    bind(classOf[ApiAccess]).toInstance(ApiAccess("PRIVATE"))
+    bind(classOf[String]).toInstance("CONTROLLED")
 
     bindConfigInt("controllers.confidenceLevel")
     bindConfigString("appUrl", "appUrl")

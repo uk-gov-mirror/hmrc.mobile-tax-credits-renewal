@@ -20,21 +20,15 @@ import controllers.Assets
 
 import javax.inject.{Inject, Singleton}
 import play.api.http.HttpErrorHandler
-import play.api.libs.json.{Json, OWrites}
 import play.api.mvc.{Action, AnyContent, ControllerComponents}
 import uk.gov.hmrc.mobiletaxcreditsrenewal.views.txt
 
-case class ApiAccess(`type`: String)
-
-object ApiAccess {
-  implicit val writes: OWrites[ApiAccess] = Json.writes[ApiAccess]
-}
 
 @Singleton
 class DocumentationController @Inject() (
   controllerComponents: ControllerComponents,
   assets:               Assets,
-  apiAccess:            ApiAccess,
+  apiAccess:            String,
   errorHandler:         HttpErrorHandler)
     extends uk.gov.hmrc.api.controllers.DocumentationController(controllerComponents, assets, errorHandler) {
 
